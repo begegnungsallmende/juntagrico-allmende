@@ -14,7 +14,7 @@ SECRET_KEY = os.environ.get('JUNTAGRICO_SECRET_KEY')
 
 DEBUG = os.environ.get("JUNTAGRICO_DEBUG", 'False')=='True'
 
-ALLOWED_HOSTS = ['begegnungsallmende.juntagrico.science', 'localhost',]
+ALLOWED_HOSTS = ['begegnungsallmende.juntagrico.science', 'b-allmend.juntagrico.science', 'localhost',]
 
 
 # Application definition
@@ -154,9 +154,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 """
      juntagrico Settings
 """
-ORGANISATION_NAME = "Begegnungsallmende"
-ORGANISATION_LONG_NAME = "Begegnungsallmende"
-ORGANISATION_ADDRESS = {"name":"Begegnungsallmende", 
+ORGANISATION_NAME = "b-allmend"
+ORGANISATION_LONG_NAME = "b-allmend"
+ORGANISATION_ADDRESS = {"name":"b-allmend", 
             "street" : "-",
             "number" : "-",
             "zip" : "-",
@@ -169,8 +169,8 @@ ORGANISATION_BANK_CONNECTION = {"PC" : "-",
             "ESR" : ""}
 SHARE_PRICE = "1"
 
-INFO_EMAIL = "-"
-SERVER_URL = "www.begegnungsallmende.org"
+INFO_EMAIL = "b-allmend@immerda.ch"
+SERVER_URL = "b-allmend.ch"
 STYLES = {'static': ['begegnungsallmende/css/customize.css']}
 
 VOCABULARY = {
