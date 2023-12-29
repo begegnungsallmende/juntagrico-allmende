@@ -172,3 +172,22 @@ SHARE_PRICE = "1"
 INFO_EMAIL = "-"
 SERVER_URL = "www.begegnungsallmende.org"
 STYLES = {'static': ['begegnungsallmende/css/customize.css']}
+
+VOCABULARY = {
+    'member': 'Mensch',
+    'member_pl' : 'Menschen',
+    'assignment' : 'Arbeitseinsatz',
+    'assignment_pl' : 'Arbeitseinsätze',
+    'share' : 'Anteilschein',
+    'share_pl' : 'Anteilscheine',
+    'subscription' : 'Teilnahme',
+    'subscription_pl' : 'Teilnahmen',
+    'co_member' : 'Begleitung',
+    'co_member_pl' : 'Begleitungen',
+    'price' : 'Teilnahmekosten',
+    'member_type' : 'Mensch',
+    'member_type_pl' : 'Menschen',
+    'depot' : 'Teilnahmeort',
+    'depot_pl' : 'Teilnahmeorte',
+    'package': 'Tasche',
+}
