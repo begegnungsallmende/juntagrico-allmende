@@ -25,10 +25,10 @@ class AllmendConfig(AppConfig):
         forms.SubscriptionPartSelectForm.clean = subscription_select_cleaner
         forms.SubscriptionPartSelectForm.get_selected = my_get_selected
 
-        original_init = forms.MemberProfileForm.__init__
+        original_profile_init = forms.MemberProfileForm.__init__
 
-        def new_init(self, *args, **kwargs):
-            original_init(self, *args, **kwargs)
+        def new_profile_init(self, *args, **kwargs):
+            original_profile_init(self, *args, **kwargs)
             self.fields['first_name'].label = "Name oder Nickname"
             self.fields['last_name'].widget = HiddenInput()
             self.fields['addr_street'].widget = HiddenInput()
@@ -40,4 +40,4 @@ class AllmendConfig(AppConfig):
             self.fields['birthday'].widget = HiddenInput()
             self.fields['iban'].widget = HiddenInput()
 
-        forms.MemberProfileForm.__init__ = new_init
+        forms.MemberProfileForm.__init__ = new_profile_init
