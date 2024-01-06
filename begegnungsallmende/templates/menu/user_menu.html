@@ -18,7 +18,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link {{ request|activemenu:"jobs" }}" href="{% url 'jobs' %}">
-            {% trans "Einsätze" %}
+            {% trans "Events" %}
         </a>
         {% if request|activemenu:"jobs" == 'active' %}
             <ul class="nav flex-column sub-menu">
@@ -45,11 +45,6 @@
     <li class="nav-item">
         <a class="nav-link {{ request|activemenu:"area" }}" href="{% url 'areas' %}">
             {% trans "Tätigkeitsbereiche" %}
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link {{ request|activemenu:"membership" }}" href="{% url 'profile' %}">
-            {% trans "Mitgliedschaft" %}
         </a>
     </li>
     <li class="nav-item">

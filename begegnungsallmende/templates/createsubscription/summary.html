@@ -37,18 +37,6 @@
         <p>
         {% for type, amount in subscriptions.items %}
             <strong>{{ amount }}</strong>&times; {{ type.name }}
-            {% if type.has_periods %}
-                {% for period in type.periods.all %}
-                    <br/>
-                    {{ period.start_day }}.{{ period.start_month }}. - {{ period.end_day }}.{{ period.end_month }}.
-                    {{ period.price }} {% config "currency" %}
-                {% endfor %}
-            {% else %}
-                {%blocktrans with tp=type.price%}
-                 à {{ c_currency }} {{ tp }}/Jahr.
-                {%endblocktrans%}
-                {{ type.min_duration_info }}
-            {% endif %}
             {% if not forloop.last %}<br>{% endif %}
         {% endfor %}
         {% if subscriptions|length == 0 %}
@@ -57,15 +45,6 @@
         </p>
 
         {% if subscriptions|length > 0 %}
-            <h4>{% trans "Depot" %} <a href="{% url 'cs-depot' %}" class="edit"><i class="fas fa-pen"></i></a></h4>
-            <p>{{ depot.name }}
-                <br>{% trans 'Abholung jeweils am' %} {{ depot.weekday_name }}
-                {% if depot.location.address %}<br>{{ depot.location.address_html|safe }}{% endif %}
-            </p>
-
-            <h4>{% trans "Gewünschtes Startdatum" %} <a href="{% url 'cs-start' %}" class="edit"><i class="fas fa-pen"></i></a></h4>
-            <p>{{ start_date }}</p>
-
             <h4>{{ v_co_member_pl }}</h4>
             {% for co_member in co_members %}
                 <p>{{ co_member.first_name }} {{ co_member.last_name }}
