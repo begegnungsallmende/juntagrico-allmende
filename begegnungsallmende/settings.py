@@ -191,3 +191,8 @@ VOCABULARY = {
     'depot_pl': 'Teilnahmeorte',
     'package': 'Tasche',
 }
+
+ADMINS = (
+    ('Admin', os.environ.get('JUNTAGRICO_ADMIN_EMAIL')),
+)
+MANAGERS = ADMINS
