@@ -20,6 +20,7 @@ ALLOWED_HOSTS = ['begegnungsallmende.juntagrico.science', 'b-allmend.juntagrico.
 # Application definition
 
 INSTALLED_APPS = [
+    'begegnungsallmende',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -31,7 +32,6 @@ INSTALLED_APPS = [
     'impersonate',
     'crispy_forms',
     'adminsortable2',
-    'begegnungsallmende',
     'polymorphic',
 ]
 
@@ -175,19 +175,19 @@ STYLES = {'static': ['begegnungsallmende/css/customize.css']}
 
 VOCABULARY = {
     'member': 'Mensch',
-    'member_pl' : 'Menschen',
-    'assignment' : 'Arbeitseinsatz',
-    'assignment_pl' : 'Arbeitseinsätze',
-    'share' : 'Anteilschein',
-    'share_pl' : 'Anteilscheine',
-    'subscription' : 'Teilnahme',
-    'subscription_pl' : 'Teilnahmen',
-    'co_member' : 'Begleitung',
-    'co_member_pl' : 'Begleitungen',
-    'price' : 'Teilnahmekosten',
-    'member_type' : 'Mensch',
-    'member_type_pl' : 'Menschen',
-    'depot' : 'Teilnahmeort',
-    'depot_pl' : 'Teilnahmeorte',
+    'member_pl': 'Menschen',
+    'assignment': 'Arbeitseinsatz',
+    'assignment_pl': 'Arbeitseinsätze',
+    'share': 'Anteilschein',
+    'share_pl': 'Anteilscheine',
+    'subscription': 'Teilnahme',
+    'subscription_pl': 'Teilnahmen',
+    'co_member': 'Kind',
+    'co_member_pl': 'Kinder',
+    'price': 'Teilnahmekosten',
+    'member_type': 'Mensch',
+    'member_type_pl': 'Menschen',
+    'depot': 'Teilnahmeort',
+    'depot_pl': 'Teilnahmeorte',
     'package': 'Tasche',
 }
