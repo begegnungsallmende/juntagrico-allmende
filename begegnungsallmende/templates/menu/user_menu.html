@@ -48,6 +48,11 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link {{ request|activemenu:"membership" }}" href="{% url 'profile' %}">
+            {% trans "Personalien" %}
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link {{ request|activemenu:"contact" }}" href="{% url 'contact' %}">
             {% trans "Kontakt" %}
         </a>
