@@ -12,12 +12,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include
-from django.urls import re_path
+from django.urls import re_path, path
 from django.contrib import admin
 import juntagrico
 
+from begegnungsallmende import overrides
+
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
+
+    # override
+    path('my/signup/', overrides.MySignupView.as_view(), name='signup'),
+    path('my/create/subscription/addmembers/', overrides.MyCSAddMemberView.as_view(), name='cs-co-members'),
+
     re_path(r'^', include('juntagrico.urls')),
     re_path(r'^$', juntagrico.views.home),
     re_path(r'^impersonate/', include('impersonate.urls')),
