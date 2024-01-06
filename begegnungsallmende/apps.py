@@ -1,5 +1,5 @@
 from django.apps import AppConfig
-from django.forms import BooleanField
+from django.forms import BooleanField, HiddenInput
 
 
 class AllmendConfig(AppConfig):
@@ -24,3 +24,20 @@ class AllmendConfig(AppConfig):
         from begegnungsallmende.overrides import subscription_select_cleaner, my_get_selected
         forms.SubscriptionPartSelectForm.clean = subscription_select_cleaner
         forms.SubscriptionPartSelectForm.get_selected = my_get_selected
+
+        original_init = forms.MemberProfileForm.__init__
+
+        def new_init(self, *args, **kwargs):
+            original_init(self, *args, **kwargs)
+            self.fields['first_name'].label = "Name oder Nickname"
+            self.fields['last_name'].widget = HiddenInput()
+            self.fields['addr_street'].widget = HiddenInput()
+            self.fields['addr_zipcode'].widget = HiddenInput()
+            self.fields['addr_location'].widget = HiddenInput()
+            self.fields['addr_location'].widget = HiddenInput()
+            self.fields['phone'].widget = HiddenInput()
+            self.fields['mobile_phone'].widget = HiddenInput()
+            self.fields['birthday'].widget = HiddenInput()
+            self.fields['iban'].widget = HiddenInput()
+
+        forms.MemberProfileForm.__init__ = new_init
