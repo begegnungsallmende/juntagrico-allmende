@@ -1,10 +1,19 @@
+from crispy_forms.bootstrap import FormActions
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit
 from django.core.exceptions import ValidationError
-from django.forms import HiddenInput
+from django.core.validators import int_list_validator
+from django.forms import HiddenInput, IntegerField, CharField, inlineformset_factory, formset_factory
+from django.shortcuts import redirect
+from django.utils.decorators import method_decorator
+from django.views.generic import FormView
+from juntagrico import forms
 from juntagrico.dao.subscriptiontypedao import SubscriptionTypeDao
 from juntagrico.entity.depot import Depot
 from juntagrico.forms import RegisterMemberForm, EditMemberForm, EditCoMemberForm, RegisterMultiCoMemberForm, \
     RegisterFirstMultiCoMemberForm, MemberBaseForm, SubscriptionPartSelectForm
 from juntagrico.util import temporal
+from juntagrico.view_decorators import create_subscription_session
 from juntagrico.views_create_subscription import CSAddMemberView
 from juntagrico.views_subscription import SignupView
 
@@ -86,3 +95,49 @@ def my_get_selected(self):
         sub_type: 1 if getattr(self, 'cleaned_data', {}).get('amount[' + str(sub_type.id) + ']', False) else 0
         for sub_type in SubscriptionTypeDao.get_all()
     }
+
+
+class CSCustomForm(forms.Form):
+    languages = forms.CharField(required=True, label='Sprache / Langue / Lingua / Language', max_length=50)
+    children = forms.CharField(required=False, label='Kinder (bitte Alter je Kind angeben mit Komma getrennt):')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_class = 'form-horizontal'
+        self.helper.label_class = 'col-md-3'
+        self.helper.field_class = 'col-md-9'
+        self.helper.layout = Layout(
+            'languages', 'children',
+            FormActions(
+                Submit('submit', 'Weiter')
+            )
+        )
+
+
+class CSCustomView(FormView):
+    template_name = 'createsubscription/custom.html'
+    form_class = CSCustomForm
+
+    def __init__(self):
+        super().__init__()
+        self.cs_session = None
+
+    def get_initial(self):
+        lines = self.cs_session.main_member.notes.split('\n')
+        return {
+            'languages': lines[-2][10:] if len(lines) > 2 else '',
+            'children': lines[-1][8:] if len(lines) > 2 else ''
+        }
+
+    @method_decorator(create_subscription_session)
+    def dispatch(self, request, cs_session, *args, **kwargs):
+        self.cs_session = cs_session
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        self.cs_session.main_member.notes = '\n' + 'Sprachen: ' + form.cleaned_data['languages'] + '\n'
+        if form.cleaned_data['children']:
+            self.cs_session.main_member.notes += 'Kinder: ' + form.cleaned_data['children']
+        self.cs_session.co_members_done = True
+        return redirect(self.cs_session.next_page())

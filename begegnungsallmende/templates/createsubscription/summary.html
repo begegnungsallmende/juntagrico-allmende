@@ -40,21 +40,8 @@
         </p>
 
         {% if subscriptions|length > 0 %}
-            <h4>{{ v_co_member_pl }}</h4>
-            {% for co_member in co_members %}
-                <p>{{ co_member.first_name }}
-                    {% if not co_member.pk %}<a href="{% url 'cs-co-members' %}?edit={{forloop.counter}}" class="edit"><i class="fas fa-pen"></i></a>{% endif %}
-                    <a href="{% url 'cs-co-members' %}?remove={{forloop.counter}}" class="delete"><i class="fas fa-trash"></i></a>
-                    <br>{% trans 'E-Mail' %}: <b>{{ co_member.email }}</b>
-                </p>
-            {% endfor %}
-            <p><a href="{% url 'cs-co-members' %}"><i class="fas fa-plus"></i>
-                {% if co_members|length > 0 %}
-                    {% blocktrans %}Weitere {{ v_co_member_pl }} hinzufügen{% endblocktrans %}
-                {% else %}
-                    {% blocktrans %}{{ v_co_member_pl }} hinzufügen{% endblocktrans %}
-                {% endif %}
-            </a></p>
+            <h4>Weitere Angaben <a href="{% url 'cs-co-members' %}" class="edit"><i class="fas fa-pen"></i></a></h4>
+            <p>{{ main_member.notes|linebreaksbr }}</p>
         {% endif %}
 
         {% if activity_areas %}

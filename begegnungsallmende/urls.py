@@ -23,7 +23,7 @@ urlpatterns = [
 
     # override
     path('my/signup/', overrides.MySignupView.as_view(), name='signup'),
-    path('my/create/subscription/addmembers/', overrides.MyCSAddMemberView.as_view(), name='cs-co-members'),
+    path('my/create/subscription/addmembers/', overrides.CSCustomView.as_view(), name='cs-co-members'),
 
     re_path(r'^', include('juntagrico.urls')),
     re_path(r'^$', juntagrico.views.home),

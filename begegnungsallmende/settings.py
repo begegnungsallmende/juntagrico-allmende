@@ -66,7 +66,7 @@ TEMPLATES = [
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader'
             ],
-            'debug' : True
+            'debug': True
         },
     },
 ]
@@ -77,6 +77,10 @@ WSGI_APPLICATION = 'begegnungsallmende.wsgi.application'
 LANGUAGE_CODE = 'de'
 
 SITE_ID = 1
+
+USE_TZ = True
+
+TIME_ZONE = 'Europe/Zurich'
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -142,7 +146,6 @@ LOGIN_REDIRECT_URL = "/my/home"
 """
     File & Storage Settings
 """
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 MEDIA_ROOT = 'media'
 
@@ -167,7 +170,7 @@ ORGANISATION_BANK_CONNECTION = {"PC" : "-",
             "BIC" : "-",
             "NAME" : "-",
             "ESR" : ""}
-ENABLE_SHARES = False
+ENABLE_SHARES = True
 
 INFO_EMAIL = "b-allmend@immerda.ch"
 SERVER_URL = "b-allmend.ch"
@@ -176,8 +179,8 @@ STYLES = {'static': ['begegnungsallmende/css/customize.css']}
 VOCABULARY = {
     'member': 'Mensch',
     'member_pl': 'Menschen',
-    'assignment': 'Arbeitseinsatz',
-    'assignment_pl': 'Arbeitseinsätze',
+    'assignment': 'Termin',
+    'assignment_pl': 'Termine',
     'share': 'Anteilschein',
     'share_pl': 'Anteilscheine',
     'subscription': 'Teilnahme',

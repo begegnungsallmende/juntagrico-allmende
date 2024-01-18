@@ -1,0 +1,37 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% load static %}
+{% load juntagrico.config %}
+{% block content %}
+    <h3>
+        {% trans "Aktuelle Termine" %}
+    </h3>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            {% include "snippets/snippet_jobs.html" %}
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <a href="{% url 'jobs' %}">
+                {% trans "Hier alle Termine anzeigen" %}
+            </a>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h4>
+                {% trans "Zu den Kalendern der einzelnen Tätigkeitsbereiche" %}
+            </h4>
+        </div>
+    </div>
+    {% for area in areas %}
+        <div class="row mb-1">
+            <div class="col-md-12">
+                <a href="{% url 'area' area.id %}" class="{% if area.core %}core{% endif %}">
+                    {{ area.name }}
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
