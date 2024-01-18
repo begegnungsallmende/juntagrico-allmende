@@ -170,7 +170,7 @@ ORGANISATION_BANK_CONNECTION = {"PC" : "-",
             "BIC" : "-",
             "NAME" : "-",
             "ESR" : ""}
-ENABLE_SHARES = True
+ENABLE_SHARES = False
 
 INFO_EMAIL = "b-allmend@immerda.ch"
 SERVER_URL = "b-allmend.ch"
