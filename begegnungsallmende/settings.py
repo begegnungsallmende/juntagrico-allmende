@@ -181,8 +181,8 @@ STYLES = {'static': ['begegnungsallmende/css/customize.css']}
 VOCABULARY = {
     'member': 'Teilnehmende:r',
     'member_pl': 'Teilnehmende',
-    'assignment': 'Termin-Buchungen',
-    'assignment_pl': 'Termin-Buchungenen',
+    'assignment': 'Termin-Buchung',
+    'assignment_pl': 'Termin-Buchungen',
     'share': 'Anteilschein',
     'share_pl': 'Anteilscheine',
     'subscription': 'Teilnahme',
