@@ -1,13 +1,13 @@
 from crispy_forms.bootstrap import FormActions
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
-from django.core.validators import int_list_validator
-from django.forms import HiddenInput, IntegerField, CharField, inlineformset_factory, formset_factory
+from django.forms import HiddenInput
 from django.shortcuts import redirect
 from django.utils.decorators import method_decorator
 from django.views.generic import FormView
-from juntagrico import forms
+from juntagrico import forms, views_subscription
 from juntagrico.dao.subscriptiontypedao import SubscriptionTypeDao
 from juntagrico.entity.depot import Depot
 from juntagrico.forms import RegisterMemberForm, EditMemberForm, EditCoMemberForm, RegisterMultiCoMemberForm, \
@@ -77,6 +77,13 @@ class MySignupView(SignupView):
         return super().form_valid(form)
 
 
+@create_subscription_session
+def set_defaults(request, session, *args, **kwargs):
+    session.depot = Depot.objects.first()
+    session.start_date = temporal.start_of_next_business_year()
+    return redirect('cs-co-members')
+
+
 def subscription_select_cleaner(self):
     super(SubscriptionPartSelectForm, self).clean()
     # check that at least one field is selected
@@ -141,3 +148,13 @@ class CSCustomView(FormView):
             self.cs_session.main_member.notes += 'Kinder: ' + form.cleaned_data['children']
         self.cs_session.co_members_done = True
         return redirect(self.cs_session.next_page())
+
+
+@login_required
+def subscription(request, subscription_id=None, *args, **kwargs):
+    member = request.user.member
+    if subscription_id is None:
+        subscription_id = getattr(member.subscription_current, 'id', None)
+        if subscription_id is None:
+            subscription_id = getattr(member.subscription_future, 'id', None)
+    return views_subscription.subscription(request, subscription_id)

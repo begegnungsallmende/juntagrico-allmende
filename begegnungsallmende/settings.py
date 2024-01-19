@@ -92,6 +92,8 @@ USE_L10N = True
 
 DATE_INPUT_FORMATS =['%d.%m.%Y',]
 
+LOCALE_PATHS = ('locale',)
+
 AUTHENTICATION_BACKENDS = (
     'juntagrico.util.auth.AuthenticateWithEmail',
     'django.contrib.auth.backends.ModelBackend'
@@ -177,10 +179,10 @@ SERVER_URL = "b-allmend.ch"
 STYLES = {'static': ['begegnungsallmende/css/customize.css']}
 
 VOCABULARY = {
-    'member': 'Mensch',
-    'member_pl': 'Menschen',
-    'assignment': 'Termin',
-    'assignment_pl': 'Termine',
+    'member': 'Teilnehmende:r',
+    'member_pl': 'Teilnehmende',
+    'assignment': 'Termin-Buchungen',
+    'assignment_pl': 'Termin-Buchungenen',
     'share': 'Anteilschein',
     'share_pl': 'Anteilscheine',
     'subscription': 'Teilnahme',

@@ -1,0 +1,58 @@
+{% extends "subscription.html" %}
+{% load i18n %}
+{% load juntagrico.config %}
+{% load juntagrico.common %}
+{% load juntagrico.subscription %}
+{% block content %}
+    {% has_extra_subscriptions as b_has_extra_subscriptions %}
+    {% vocabulary "subscription" as v_subscription %}
+    {% vocabulary "share_pl" as v_share_pl %}
+    {% vocabulary "co_member_pl" as v_co_member_pl %}
+    {% vocabulary "depot" as v_depot %}
+    {% if can_order %}
+        <div class="alert alert-warning">
+            {% blocktrans %}Du bist noch nicht angemeldet.{% endblocktrans %}
+            <br/>
+            {% trans "Melde dich hier an" %}:
+            <a href="{% url 'cs-subscription' %}">
+                {% blocktrans %}{{ v_subscription }} erstellen{% endblocktrans %}
+            </a>
+        </div>
+    {% endif %}
+    {% if no_subscription %}
+    {% else %}
+        <div class="row mb-3">
+            <div class="col-md-3">
+                {% blocktrans %}{{ v_subscription }}{% endblocktrans %}
+            </div>
+            <div class="col-md-9">
+                {% if subscription.state == 'waiting' %}
+                {{ subscription.future_part_overview|overview|safe }}
+                {% else %}
+                {{ subscription.part_overview|overview|safe }}
+                {% endif %}
+            </div>
+        </div>
+        {% if subscription.state != 'inactive' %}
+            <div class="row mb-3">
+                <div class="offset-3 col-md-9">
+                    <a href="{% if primary %}{% url 'sub-change' subscription.id %}{% endif %}" class="btn btn-success {% if not primary %}disabled{% endif %}">
+                        {% blocktrans %}{{ v_subscription }} ändern{% endblocktrans %}
+                    </a>
+                    {% if not primary %}
+                        {% trans "Nur der Hauptbezieher kann Änderungen durchführen." %}
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+        {% if subscription.state != 'inactive' and can_leave %}
+            <div class="row mb-3">
+                <div class="offset-3 col-md-9">
+                    <a href="{% url 'sub-leave' subscription.id %}" class="btn btn-danger">
+                        {% blocktrans %}{{ v_subscription }} absagen{% endblocktrans %}
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-31 15:03+0200\n"
+"PO-Revision-Date: 2020-11-03 11:42+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: juntagrico/mailer/membernotification.py:62
+msgid "Für Einsatz angemeldet"
+msgstr "Für Termin angemeldet"
+
+#: juntagrico/mailer/membernotification.py:69
+msgid "Einsatz-Erinnerung"
+msgstr "Termin-Erinnerung"
+
+#: juntagrico/mailer/membernotification.py:77
+msgid "Einsatz-Zeit geändert"
+msgstr "Termin-Zeit geändert"
+
+#: juntagrico/mailer/membernotification.py:85
+msgid "Einsatz abgesagt"
+msgstr "Termin abgesagt"
+
+#: juntagrico/entity/jobs.py:299
+#: juntagrico/templates/mails/member/job_canceled.txt:13
+#: juntagrico/templates/mails/member/job_reminder.txt:14
+#: juntagrico/templates/mails/member/job_signup.txt:14
+#: juntagrico/templates/mails/member/job_time_changed.txt:14
+#: juntagrico/templates/snippets/snippet_jobs.html:14
+msgid "Job"
+msgstr "Termin"
+
+#: juntagrico/entity/jobs.py:174
+#, python-brace-format
+msgid "Job {0}"
+msgstr "Termin {0}"
+
+#: juntagrico/entity/jobs.py:300
+msgid "Jobs"
+msgstr "Termine"
+
+#: juntagrico/entity/jobs.py:329
+msgid "EinzelJob"
+msgstr "Einzeltermin"
+
+#: juntagrico/entity/jobs.py:330
+msgid "EinzelJobs"
+msgstr "Einzeltermine"
+
+#: juntagrico/entity/jobs.py:340
+msgid "Job Extras"
+msgstr "Termin Extras"
+
+#: juntagrico/entity/jobs.py:151 juntagrico/entity/jobs.py:278
+msgid "Jobart"
+msgstr "Terminart"
+
+#: juntagrico/entity/jobs.py:152
+msgid "Jobarten"
+msgstr "Terminarten"
+
+#: juntagrico/entity/jobs.py:71
+msgid "JobExtraTyp"
+msgstr "TerminExtraTyp"
+
+#: juntagrico/entity/jobs.py:72
+msgid "JobExtraTypen"
+msgstr "TerminExtraTypen"
+
+#: juntagrico/entity/jobs.py:103
+msgid "JobExtra"
+msgstr "TerminExtra"
+
+#: juntagrico/entity/jobs.py:104
+msgid "JobExtras"
+msgstr "TerminExtras"
