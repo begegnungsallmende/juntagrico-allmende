@@ -28,29 +28,24 @@
                 Interessiert an {% enriched_organisation "D" %}?
             </div>
         </div>
-        {% if c_enable_shares %}
-            <div class="row mb-3">
-                <div class="col-md-12">
-                    {% blocktrans trimmed %}
-                    Die Mitgliedschaft bei {{ v_d_enriched_organisation }} ist geknüpft an den Erwerb von
-                    {{ v_share_pl }} in der Höhe
-                    von CHF {{ c_share_price }} pro {{ v_share }}. Die Anzahl {{ v_share_pl }}
-                    ist abhängig von den {{ v_subscription }}-Bestandteilen. Die {{ v_share_pl }} sind das
-                    Kapital, das vor allem zur Finanzierung von Investitionen – zum Beispiel Infrastruktur – verwendet
-                    wird.
-                    Beim Austritt werden die {{ v_share_pl }} rückerstattet.
-                    {% endblocktrans %}
-                </div>
-            </div>
-        {% endif %}
         <div class="row mb-3">
             <div class="col-md-12">
-                {% blocktrans trimmed %}
-                Die {{ v_member_type_pl }} tragen im Rahmen ihrer Motivationen, Prioritäten und Möglichkeiten
-                gemeinsam zum Gelingen des Betriebes bei.
-                Wer bei {{ v_d_enriched_organisation }} {{ v_member_type }} ist, verpflichtet sich zur
-                Mitarbeit. Zusätzliches wie auch spontanes Engagement ist jederzeit willkommen.
-                {% endblocktrans %}
+                <p>Hier kannst du dich anmelden.</p>
+                <p>
+                    Warum über diese Webseite? Juntagrico ist ein Tool, das für die Mitglieder-Verwaltung von
+                    Solawis entwickelt wurde (ursprünglich für ortoloco, mittlerweile verwenden es zahlreiche
+                    Solawis in der Schweiz). Das Orga-Team der b-Allmend 2024 möchte gerne ausprobieren,
+                    ob es die Organisation der Allmend erleichtert. Zur Anmeldung braucht´s nur einen Namen
+                    (kann auch ein Fantasiename sein) und eine Emailadresse, damit wir dir die weiteren Infos
+                    schicken können. (Sonst werden keine Daten gespeichert und die Anmeldungen löschen wir
+                    nach der Allmend wieder.)
+                </p>
+                <p>Nach der Anmeldung bekommst du eine Bestätigungsmail; damit ist die Anmeldung erfolgreich erledigt.</p>
+                <p>
+                    Kurz vor der Allmend wirst du dich auch für Arbeitseinsätze (Abwaschen, Ankommende empfangen etc.)
+                    eintragen können – wenn alle Teilnehmenden ca. einen Einsatz pro Tag machen, läufts rund.
+                    Sobald die Mithilfe-Einsätze aufgeschaltet sind, verschicken wir dazu ein Mail.
+                </p>
             </div>
         </div>
         {% if c_bylaws.strip or c_business_regulations.strip %}

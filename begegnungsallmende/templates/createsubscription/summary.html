@@ -56,18 +56,6 @@
             <p>{% blocktrans %}Du kannst das jederzeit unter dem Menupunkt Tätigkeitsbereiche ändern.{% endblocktrans %}</p>
         {% endif %}
 
-        {% if c_enable_shares %}
-            <h4>{% trans "Anteilscheine" %} <a href="{% url 'cs-shares' %}" class="edit"><i class="fas fa-pen"></i></a></h4>
-            <p>
-                {{ main_member.first_name }} {{ main_member.last_name }}: <b>{{ main_member.new_shares|default:'Keine' }}</b>
-                {% for co_member in co_members %}
-                <br>{{ co_member.first_name }} {{ co_member.last_name }}: <b>{{ co_member.new_shares|default:'Keine' }}</b>
-                {% endfor %}
-            </p>
-            <p>{% blocktrans %}Zu je einmalig {{ c_currency }} {{ c_share_price }}{% endblocktrans %}</p>
-        {% endif %}
-
-
         <h4>Kommentar</h4>
         <form action="" method="post">
             {% crispy form %}

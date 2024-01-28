@@ -81,3 +81,7 @@ msgstr "TerminExtra"
 #: juntagrico/entity/jobs.py:104
 msgid "JobExtras"
 msgstr "TerminExtras"
+
+#: juntagrico/forms.py:267
+msgid "Verbindlich bestellen"
+msgstr "Definitiv anmelden"

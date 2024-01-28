@@ -19,12 +19,5 @@
             {{ type.description|richtext|safe }}
             <br/>
         {% endif %}
-        {% config "enable_shares" as c_enable_shares %}
-        {% if c_enable_shares %}
-            <br/>
-            {% vocabulary "share_pl" %}: {{ type.shares }}
-        {% endif %}
-        <br/>
-        {% trans "Arbeitseinsätze" %}: Von jeder:m Teilnehmenden wird etwa 1 Einsatz pro Tag benötigt, damit die b-Allmende rund abläuft.
-    </label>
+        </label>
 </div>

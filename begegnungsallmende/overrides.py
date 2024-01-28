@@ -105,7 +105,7 @@ def my_get_selected(self):
 
 
 class CSCustomForm(forms.Form):
-    languages = forms.CharField(required=True, label='Sprache / Langue / Lingua / Language', max_length=50)
+    languages = forms.CharField(required=True, label='Welche Sprache(n) sprichst/verstehst du?', max_length=50)
     children = forms.CharField(required=False, label='Kinder (bitte Alter je Kind angeben mit Komma getrennt):')
 
     def __init__(self, *args, **kwargs):
