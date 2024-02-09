@@ -3,6 +3,7 @@ Django settings for begegnungsallmende project.
 """
 
 import os
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -76,6 +77,11 @@ WSGI_APPLICATION = 'begegnungsallmende.wsgi.application'
 
 LANGUAGE_CODE = 'de'
 
+LANGUAGES = [
+    ('de', _('Deutsch')),
+    ('fr', _('Französisch')),
+]
+
 SITE_ID = 1
 
 USE_TZ = True
@@ -101,8 +107,9 @@ AUTHENTICATION_BACKENDS = (
 
 
 MIDDLEWARE = [
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -185,8 +192,8 @@ VOCABULARY = {
     'assignment_pl': 'Termin-Buchungen',
     'share': 'Anteilschein',
     'share_pl': 'Anteilscheine',
-    'subscription': 'Teilnahme',
-    'subscription_pl': 'Teilnahmen',
+    'subscription': _('Teilnahme'),
+    'subscription_pl': _('Teilnahmen'),
     'co_member': 'Kind',
     'co_member_pl': 'Kinder',
     'price': 'Teilnahmekosten',

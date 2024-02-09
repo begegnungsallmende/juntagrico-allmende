@@ -40,7 +40,7 @@
         </p>
 
         {% if subscriptions|length > 0 %}
-            <h4>Weitere Angaben <a href="{% url 'cs-co-members' %}" class="edit"><i class="fas fa-pen"></i></a></h4>
+            <h4>{% trans "Weitere Angaben" %} <a href="{% url 'cs-co-members' %}" class="edit"><i class="fas fa-pen"></i></a></h4>
             <p>{{ main_member.notes|linebreaksbr }}</p>
         {% endif %}
 
@@ -56,7 +56,7 @@
             <p>{% blocktrans %}Du kannst das jederzeit unter dem Menupunkt Tätigkeitsbereiche ändern.{% endblocktrans %}</p>
         {% endif %}
 
-        <h4>Kommentar</h4>
+        <h4>{% trans "Kommentar" %}</h4>
         <form action="" method="post">
             {% crispy form %}
         </form>

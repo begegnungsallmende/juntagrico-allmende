@@ -16,12 +16,14 @@ from juntagrico.util import temporal
 from juntagrico.view_decorators import create_subscription_session
 from juntagrico.views_create_subscription import CSAddMemberView
 from juntagrico.views_subscription import SignupView
+from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy
 
 
 class MyOverrideMemberForm(MemberBaseForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['first_name'].label = "Name oder Nickname"
+        self.fields['first_name'].label = _("Name oder Nickname")
         self.initial['last_name'] = '-'
         self.fields['last_name'].widget = HiddenInput()
         self.initial['addr_street'] = '-'
@@ -41,7 +43,7 @@ class MyOverrideMemberForm(MemberBaseForm):
 class MyRegisterMemberForm(MyOverrideMemberForm, RegisterMemberForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['agb'].label = "Ich möchte gerne an der diesjährigen b-Allmende teilnehmen."
+        self.fields['agb'].label = _("Ich möchte gerne an der diesjährigen b-Allmende teilnehmen.")
 
 
 class MyEditMemberForm(MyRegisterMemberForm, EditMemberForm):
@@ -94,7 +96,7 @@ def subscription_select_cleaner(self):
                 selected = True
                 break
     if not selected:
-        raise ValidationError('Wähle mindestens einen Tag aus')
+        raise ValidationError(_('Wähle mindestens einen Tag aus'))
 
 
 def my_get_selected(self):
@@ -105,8 +107,8 @@ def my_get_selected(self):
 
 
 class CSCustomForm(forms.Form):
-    languages = forms.CharField(required=True, label='Welche Sprache(n) sprichst/verstehst du?', max_length=50)
-    children = forms.CharField(required=False, label='Kinder (bitte Alter je Kind angeben mit Komma getrennt):')
+    languages = forms.CharField(required=True, label=gettext_lazy('Welche Sprache(n) sprichst/verstehst du?'), max_length=50)
+    children = forms.CharField(required=False, label=gettext_lazy('Kinder (bitte Alter je Kind angeben mit Komma getrennt):'))
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -117,7 +119,7 @@ class CSCustomForm(forms.Form):
         self.helper.layout = Layout(
             'languages', 'children',
             FormActions(
-                Submit('submit', 'Weiter')
+                Submit('submit', _('Weiter'))
             )
         )
 
@@ -143,9 +145,9 @@ class CSCustomView(FormView):
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
-        self.cs_session.main_member.notes = '\n' + 'Sprachen: ' + form.cleaned_data['languages'] + '\n'
+        self.cs_session.main_member.notes = '\n' + _('Sprachen: ') + form.cleaned_data['languages'] + '\n'
         if form.cleaned_data['children']:
-            self.cs_session.main_member.notes += 'Kinder: ' + form.cleaned_data['children']
+            self.cs_session.main_member.notes += _('Kinder: ') + form.cleaned_data['children']
         self.cs_session.co_members_done = True
         return redirect(self.cs_session.next_page())
 

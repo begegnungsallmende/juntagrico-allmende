@@ -25,13 +25,15 @@
         {% vocabulary "member_type_pl" as v_member_type_pl %}
         <div class="row mb-3">
             <div class="col-md-12">
-                Interessiert an {% enriched_organisation "D" %}?
+                {% enriched_organisation "D" as e_organisation %}
+                {% blocktrans %}Interessiert an {{ e_organisation }}?{% endblocktrans %}
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-md-12">
-                <p>Hier kannst du dich anmelden.</p>
+                <p>{% trans "Hier kannst du dich anmelden." %}</p>
                 <p>
+                    {% blocktrans trimmed %}
                     Warum über diese Webseite? Juntagrico ist ein Tool, das für die Mitglieder-Verwaltung von
                     Solawis entwickelt wurde (ursprünglich für ortoloco, mittlerweile verwenden es zahlreiche
                     Solawis in der Schweiz). Das Orga-Team der b-Allmend 2024 möchte gerne ausprobieren,
@@ -39,12 +41,19 @@
                     (kann auch ein Fantasiename sein) und eine Emailadresse, damit wir dir die weiteren Infos
                     schicken können. (Sonst werden keine Daten gespeichert und die Anmeldungen löschen wir
                     nach der Allmend wieder.)
+                    {% endblocktrans %}
                 </p>
-                <p>Nach der Anmeldung bekommst du eine Bestätigungsmail; damit ist die Anmeldung erfolgreich erledigt.</p>
                 <p>
+                    {% blocktrans trimmed %}
+                    Nach der Anmeldung bekommst du eine Bestätigungsmail; damit ist die Anmeldung erfolgreich erledigt.
+                    {% endblocktrans %}
+                </p>
+                <p>
+                    {% blocktrans trimmed %}
                     Kurz vor der Allmend wirst du dich auch für Arbeitseinsätze (Abwaschen, Ankommende empfangen etc.)
                     eintragen können – wenn alle Teilnehmenden ca. einen Einsatz pro Tag machen, läufts rund.
                     Sobald die Mithilfe-Einsätze aufgeschaltet sind, verschicken wir dazu ein Mail.
+                    {% endblocktrans %}
                 </p>
             </div>
         </div>
