@@ -22,6 +22,7 @@ ALLOWED_HOSTS = ['begegnungsallmende.juntagrico.science', 'b-allmend.juntagrico.
 
 INSTALLED_APPS = [
     'begegnungsallmende',
+    'modeltranslation',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -34,6 +35,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'adminsortable2',
     'polymorphic',
+    'juntagrico_translations',
 ]
 
 ROOT_URLCONF = 'begegnungsallmende.urls'
