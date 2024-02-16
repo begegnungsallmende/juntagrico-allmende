@@ -1,3 +1,12 @@
+from io import BytesIO
+
+from django.contrib.auth.decorators import permission_required
+from django.http import HttpResponse
+from xlsxwriter import Workbook
+
+from juntagrico.config import Config
+from juntagrico.dao.memberdao import MemberDao
+
 from crispy_forms.bootstrap import FormActions
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
@@ -160,3 +169,53 @@ def subscription(request, subscription_id=None, *args, **kwargs):
         if subscription_id is None:
             subscription_id = getattr(member.subscription_future, 'id', None)
     return views_subscription.subscription(request, subscription_id)
+
+
+@permission_required('juntagrico.can_view_exports')
+def excel_export_members_filter(request):
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=Report.xlsx'
+    output = BytesIO()
+    workbook = Workbook(output)
+    worksheet_s = workbook.add_worksheet(Config.vocabulary('member_pl'))
+
+    worksheet_s.write_string(0, 0, str(_('Name')))
+    worksheet_s.write_string(0, 1, str(Config.vocabulary('assignment')))
+    worksheet_s.write_string(
+        0, 2, str(Config.vocabulary('assignment') + ' ' + _('Kernbereich')))
+    worksheet_s.write_string(0, 3, str(_('Taetigkeitsbereiche')))
+    worksheet_s.write_string(0, 4, str(_('Depot')))
+    worksheet_s.write_string(0, 5, str(_('Email')))
+    worksheet_s.write_string(0, 6, str(_('Telefon')))
+    worksheet_s.write_string(0, 7, str(_('Mobile')))
+    worksheet_s.write_string(0, 8, str(_('Notiz')))
+    members = MemberDao.members_with_assignments_count()
+
+    row = 1
+    for member in members:
+        member.all_areas = ''
+        for area in member.areas.all():
+            member.all_areas = member.all_areas + area.name + ' '
+        if member.all_areas == '':
+            member.all_areas = str(_('-Kein Tätigkeitsbereich-'))
+
+        member.depot_name = str(_('Kein Depot definiert'))
+        if member.subscription_current is not None:
+            member.depot_name = member.subscription_current.depot.name
+        full_name = member.first_name + ' ' + member.last_name
+        worksheet_s.write_string(row, 0, full_name)
+        worksheet_s.write(row, 1, member.assignment_count)
+        worksheet_s.write(row, 2, member.core_assignment_count)
+        worksheet_s.write_string(row, 3, member.all_areas)
+        worksheet_s.write_string(row, 4, member.depot_name)
+        worksheet_s.write_string(row, 5, member.email)
+        worksheet_s.write_string(row, 6, member.phone)
+        if member.mobile_phone is not None:
+            worksheet_s.write_string(row, 7, member.mobile_phone)
+        worksheet_s.write_string(row, 8, member.notes)
+        row += 1
+
+    workbook.close()
+    xlsx_data = output.getvalue()
+    response.write(xlsx_data)
+    return response

@@ -28,6 +28,7 @@ urlpatterns = [
     path('my/create/subscription/addmembers/', overrides.CSCustomView.as_view(), name='cs-co-members'),
 
     path('my/subscription/detail/', overrides.subscription, name='sub-detail'),
+    path('my/export/membersfilter', overrides.excel_export_members_filter, name='export-membersfilter'),
 
     re_path(r'^', include('juntagrico.urls')),
     re_path(r'^$', juntagrico.views.home),
