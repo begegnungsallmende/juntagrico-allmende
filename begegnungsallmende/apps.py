@@ -17,7 +17,7 @@ class AllmendConfig(AppConfig):
             new_fields = {}
             for key, field in self.fields.items():
                 if key.startswith('amount['):
-                    new_fields[key] = BooleanField(label=field.label, required=False)
+                    new_fields[key] = BooleanField(label=field.label, required=False, initial=field.initial != 0)
             self.fields.update(new_fields)
 
         forms.SubscriptionPartSelectForm.__init__ = new_init

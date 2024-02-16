@@ -1,5 +1,12 @@
 from io import BytesIO
 
+from django.shortcuts import render, get_object_or_404
+from juntagrico.entity.subs import Subscription
+from juntagrico.util import return_to_previous_location
+from juntagrico.util.management import create_subscription_parts
+from juntagrico.view_decorators import primary_member_of_subscription
+
+
 from django.contrib.auth.decorators import permission_required
 from django.http import HttpResponse
 from xlsxwriter import Workbook
@@ -219,3 +226,28 @@ def excel_export_members_filter(request):
     xlsx_data = output.getvalue()
     response.write(xlsx_data)
     return response
+
+
+@primary_member_of_subscription
+def size_change(request, subscription_id):
+    """
+    change the size of a subscription
+    """
+    subscription = get_object_or_404(Subscription, id=subscription_id)
+    if request.method == 'POST':
+        form = SubscriptionPartSelectForm({}, request.POST)
+        if form.is_valid():
+            subscription.parts.all().delete()
+            create_subscription_parts(subscription, form.get_selected(), True)
+            return return_to_previous_location(request)
+    else:
+        form = SubscriptionPartSelectForm({p.type: 1 for p in subscription.parts.all()})
+    renderdict = {
+        'form': form,
+        'subscription': subscription,
+        'hours_used': Config.assignment_unit() == 'HOURS',
+        'next_cancel_date': temporal.next_cancelation_date(),
+        'parts_order_allowed': True,
+    }
+    return render(request, 'size_change.html', renderdict)
+

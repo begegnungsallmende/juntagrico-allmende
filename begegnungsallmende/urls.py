@@ -29,6 +29,8 @@ urlpatterns = [
 
     path('my/subscription/detail/', overrides.subscription, name='sub-detail'),
     path('my/export/membersfilter', overrides.excel_export_members_filter, name='export-membersfilter'),
+    path('my/subscription/change/size/<int:subscription_id>/', overrides.size_change, name='size-change'),
+    path('my/subscription/change/overview/<int:subscription_id>/', overrides.size_change, name='sub-change'),
 
     re_path(r'^', include('juntagrico.urls')),
     re_path(r'^$', juntagrico.views.home),
