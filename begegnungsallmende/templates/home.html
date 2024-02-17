@@ -3,6 +3,24 @@
 {% load static %}
 {% load juntagrico.config %}
 {% block content %}
+    <div class="row mb-3">
+        <div class="col-md-12 alert alert-info">
+            <p>
+                {% blocktrans trimmed %}
+                    Du befindest dich auf der Koordinationsplattform der b-Allmend 2024. Ca. zwei Wochen vor dem
+                    Allmend-Wochende wirst du dich hier für Arbeitseinsätze und deine Teilnahme an Veranstaltungen
+                    eintragen können ("Termine"). Wir informieren dich per Mail, sobald die Termine aufgeschaltet sind.
+                {% endblocktrans %}
+            </p>
+            <p>
+                {% blocktrans trimmed %}
+                    Ausserdem kannst du deine Teilnahmetage ändern (unter "Teilnahme") sowie mit der Orga kommunizieren
+                    ("Kontakt zur Orga" und "Tätigkeitsbereiche"). Und schliesslich unter "Personalien" kannst du
+                    entscheiden, ob andere Allmend-Teilnehmende dich über diese Plattform kontaktieren dürfen.
+                {% endblocktrans %}
+            </p>
+        </div>
+    </div>
     <h3>
         {% trans "Aktuelle Termine" %}
     </h3>

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-09 11:31+0100\n"
+"POT-Creation-Date: 2024-02-17 17:36+0100\n"
 "PO-Revision-Date: 2020-11-03 11:42+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,45 +12,89 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: begegnungsallmende/overrides.py:26
+#: begegnungsallmende/overrides.py:42
 msgid "Name oder Nickname"
 msgstr "Nom ou pseudo"
 
-#: begegnungsallmende/overrides.py:46
+#: begegnungsallmende/overrides.py:62
 msgid "Ich möchte gerne an der diesjährigen b-Allmende teilnehmen."
 msgstr "J'aimerais participer à la b-Allmende de cette année."
 
-#: begegnungsallmende/overrides.py:99
+#: begegnungsallmende/overrides.py:115
 msgid "Wähle mindestens einen Tag aus"
 msgstr ""
 
-#: begegnungsallmende/overrides.py:110
+#: begegnungsallmende/overrides.py:126
 msgid "Welche Sprache(n) sprichst/verstehst du?"
 msgstr "Quelle(s) langue(s) parles-tu/comprends-tu?"
 
-#: begegnungsallmende/overrides.py:111
+#: begegnungsallmende/overrides.py:127
 msgid "Kinder (bitte Alter je Kind angeben mit Komma getrennt):"
 msgstr ""
 "Enfants (veuillez indiquer l'âge de chaque enfant en les séparant par une "
 "virgule):"
 
-#: begegnungsallmende/overrides.py:122
+#: begegnungsallmende/overrides.py:138
 msgid "Weiter"
 msgstr ""
 
-#: begegnungsallmende/overrides.py:148
+#: begegnungsallmende/overrides.py:164
 msgid "Sprachen: "
 msgstr "Langues: "
 
-#: begegnungsallmende/overrides.py:150
+#: begegnungsallmende/overrides.py:166
 msgid "Kinder: "
 msgstr "Enfants: "
 
-#: begegnungsallmende/settings.py:81
+#: begegnungsallmende/overrides.py:189
+msgid "Name"
+msgstr ""
+
+#: begegnungsallmende/overrides.py:192
+#: begegnungsallmende/templates/widgets/assignements.html:14
+#: begegnungsallmende/templates/widgets/assignements.html:15
+msgid "Kernbereich"
+msgstr ""
+
+#: begegnungsallmende/overrides.py:193
+msgid "Taetigkeitsbereiche"
+msgstr ""
+
+#: begegnungsallmende/overrides.py:194
+msgid "Depot"
+msgstr ""
+
+#: begegnungsallmende/overrides.py:195
+#: begegnungsallmende/templates/mails/member/member_welcome.txt:14
+#: begegnungsallmende/templates/registration/login.html:31
+msgid "Email"
+msgstr ""
+
+#: begegnungsallmende/overrides.py:196
+msgid "Telefon"
+msgstr ""
+
+#: begegnungsallmende/overrides.py:197
+msgid "Mobile"
+msgstr ""
+
+#: begegnungsallmende/overrides.py:198
+msgid "Notiz"
+msgstr ""
+
+#: begegnungsallmende/overrides.py:207
+msgid "-Kein Tätigkeitsbereich-"
+msgstr ""
+
+#: begegnungsallmende/overrides.py:209
+msgid "Kein Depot definiert"
+msgstr ""
+
+#: begegnungsallmende/settings.py:83
 msgid "Deutsch"
 msgstr ""
 
-#: begegnungsallmende/settings.py:82
+#: begegnungsallmende/settings.py:84
 msgid "Französisch"
 msgstr ""
 
@@ -107,20 +151,125 @@ msgstr ""
 msgid "Kommentar"
 msgstr ""
 
-#: begegnungsallmende/templates/home.html:7
+#: begegnungsallmende/templates/home.html:9
+msgid ""
+"Du befindest dich auf der Koordinationsplattform der b-Allmend 2024. Ca. "
+"zwei Wochen vor dem Allmend-Wochende wirst du dich hier für Arbeitseinsätze "
+"und deine Teilnahme an Veranstaltungen eintragen können (\"Termine\"). Wir "
+"informieren dich per Mail, sobald die Termine aufgeschaltet sind."
+msgstr ""
+"Tu te trouves sur la plateforme de coordination de b-Allmend 2024. Environ "
+"deux semaines avant le week-end de l'Allmend, tu pourras t'y inscrire pour "
+"des travaux et ta participation à des événements (\"Termine\"). Nous "
+"t'informerons par e-mail dès que les dates seront mises en ligne. "
+
+#: begegnungsallmende/templates/home.html:16
+msgid ""
+"Ausserdem kannst du deine Teilnahmetage ändern (unter \"Teilnahme\") sowie "
+"mit der Orga kommunizieren (\"Kontakt zur Orga\" und "
+"\"Tätigkeitsbereiche\"). Und schliesslich unter \"Personalien\" kannst du "
+"entscheiden, ob andere Allmend-Teilnehmende dich über diese Plattform "
+"kontaktieren dürfen."
+msgstr ""
+"En outre, tu peux modifier tes jours de participation (sous "
+"\"participation\") et communiquer avec l'orga (\"Kontakt zur Orga\" et "
+"\"Tätigkeitsbereiche\"). Enfin, sous \"Informations personnelles\", tu peux "
+"décider si d'autres participant:es à l'Allmend peuvent te contacter via "
+"cette plate-forme."
+
+#: begegnungsallmende/templates/home.html:25
 msgid "Aktuelle Termine"
 msgstr ""
 
-#: begegnungsallmende/templates/home.html:17
+#: begegnungsallmende/templates/home.html:35
 msgid "Hier alle Termine anzeigen"
 msgstr ""
 
-#: begegnungsallmende/templates/home.html:24
+#: begegnungsallmende/templates/home.html:42
 msgid "Zu den Kalendern der einzelnen Tätigkeitsbereiche"
 msgstr ""
 
 #: begegnungsallmende/templates/jobs.html:5
 msgid "Alle Termine im Überblick"
+msgstr ""
+
+#: begegnungsallmende/templates/jobs.html:10
+msgid ""
+"Hier werden ca. zwei Wochen vor dem Allmend-Wochenende die Veranstaltungen "
+"und die Arbeitseinsätze aufgeschaltet (\"Termine\"). Wir informieren dich "
+"per Mail, sobald es soweit ist. Dann wirst du dich entsprechend eintragen "
+"können."
+msgstr ""
+"Ici, les événements et les travaux seront mis en ligne (\"Termine\") environ "
+"deux semaines avant le week-end de l'Allmend. Nous t'informerons par e-mail "
+"dès que ce sera le cas. Tu pourras alors t'inscrire en conséquence."
+
+#: begegnungsallmende/templates/mails/member/member_welcome.txt:11
+#, fuzzy, python-format
+#| msgid "Herzlich willkommen bei %(v_d_enriched_organisation)s!"
+msgid "Wir freuen uns, dich bei %(v_d_enriched_organisation)s zu begrüssen."
+msgstr "Bienvenue chez %(v_d_enriched_organisation)s!"
+
+#: begegnungsallmende/templates/mails/member/member_welcome.txt:13
+#, python-format
+msgid "Um dich auf %(serverurl)s einloggen zu können benutze folgende Daten"
+msgstr ""
+
+#: begegnungsallmende/templates/mails/member/member_welcome.txt:15
+#: begegnungsallmende/templates/registration/login.html:39
+#: begegnungsallmende/templates/registration/login.html:42
+msgid "Passwort"
+msgstr ""
+
+#: begegnungsallmende/templates/mails/member/member_welcome.txt:16
+msgid "Nutze den Bestätigungslink um deine E-Mail-Adresse zu bestätigen."
+msgstr ""
+
+#: begegnungsallmende/templates/mails/member/member_welcome.txt:17
+msgid "Bestätigungslink"
+msgstr ""
+
+#: begegnungsallmende/templates/mails/member/member_welcome.txt:19
+msgid ""
+"Juntagrico ist eine Internetplattform, entwickelt für Solawis, u.a. um die "
+"Verwaltung von\n"
+"Anmeldungen und die Koordination von Terminen (Veranstaltungen und "
+"Arbeitseinsätze) zu vereinfachen.\n"
+"In einem ersten Schritt meldet ihr euch nur an. Kurz vor der Allmend macht "
+"die Orga euch darauf aufmerksam,\n"
+"dass ihr euch für Arbeitseinsätze (Küche, Aufräumen, Kinderhüte, etc.) sowie "
+"die Teilnahme an Veranstaltungen\n"
+"(Vorträge, Workshops, Film, etc.) eintragen könnt. Es ist ein Testversuch "
+"für die Allmend, ob es eine\n"
+"Erleichterung für die Admin bringt. Alle Daten werden nachher wieder "
+"gelöscht."
+msgstr ""
+"Juntagrico est une plateforme Internet développée pour les ACP (Initiatives "
+"de l'agriculture contractuelle de proximité), entre autres pour simplifier "
+"la gestion des inscriptions et la coordination des rendez-vous (événements "
+"et travaux des membres). Dans un premier temps, il suffit de s'inscrire. Peu "
+"avant l'Allmend, l'orga vous informera sur le fait que vous pouvez vous "
+"inscrire pour des engagements de travail (cuisine, nettoyage, garde "
+"d'enfants, etc.) ainsi que pour la participation à des événements "
+"(conférences, ateliers, film, etc.). Il s'agit d'un test pour l'Allmend, "
+"afin de voir si cela apporte un soulagement pour l'admin. Toutes les données "
+"seront ensuite effacées."
+
+#: begegnungsallmende/templates/mails/member/member_welcome.txt:27
+#, python-format
+msgid ""
+"Für weitere Fragen schaust du in den FAQ (%(fd)s) nach oder schreibst eine "
+"Mail an %(c_info_email)s."
+msgstr ""
+
+#: begegnungsallmende/templates/mails/member/member_welcome.txt:29
+#, python-format
+msgid "Für weitere Fragen schreibe eine Mail an %(c_info_email)s."
+msgstr ""
+
+#: begegnungsallmende/templates/mails/member/member_welcome.txt:32
+#, python-format
+msgid "Bis bald und liebe Grüsse die %(c_organisation_name)s-Betriebsgruppe"
 msgstr ""
 
 #: begegnungsallmende/templates/menu/admin_menu.html:20
@@ -274,6 +423,30 @@ msgstr ""
 msgid "Passwort ändern"
 msgstr ""
 
+#: begegnungsallmende/templates/registration/login.html:10
+msgid "Neu hier? "
+msgstr "Nouveau ici?"
+
+#: begegnungsallmende/templates/registration/login.html:16
+msgid "Registrieren und mitmachen!"
+msgstr ""
+
+#: begegnungsallmende/templates/registration/login.html:24
+msgid "Bestehende Teilnehmende "
+msgstr "Participants existants"
+
+#: begegnungsallmende/templates/registration/login.html:34
+msgid "Email-Adresse"
+msgstr "Courriel"
+
+#: begegnungsallmende/templates/registration/login.html:57
+msgid "Anmelden"
+msgstr ""
+
+#: begegnungsallmende/templates/registration/login.html:64
+msgid "Neues Passwort anfordern"
+msgstr ""
+
 #: begegnungsallmende/templates/signup.html:9
 msgid "Teilnehmen"
 msgstr "Participer"
@@ -343,6 +516,13 @@ msgstr ""
 msgid "Betriebsreglement"
 msgstr ""
 
+#: begegnungsallmende/templates/size_change.html:9
+#: begegnungsallmende/templates/size_change.html:20
+#, fuzzy
+#| msgid "Teilnahmen"
+msgid "Teilnahme ändern"
+msgstr "participations"
+
 #: begegnungsallmende/templates/subscription.html:14
 msgid "Du bist noch nicht angemeldet."
 msgstr ""
@@ -388,11 +568,6 @@ msgstr ""
 "Tu recevras un e-mail avec toutes les informations complémentaires à "
 "l'adresse e-mail que tu as indiquée (nos e-mails se perdent parfois dans le "
 "dossier SPAM)."
-
-#: begegnungsallmende/templates/widgets/assignements.html:14
-#: begegnungsallmende/templates/widgets/assignements.html:15
-msgid "Kernbereich"
-msgstr ""
 
 #: begegnungsallmende/templates/widgets/assignements.html:18
 #: begegnungsallmende/templates/widgets/assignements.html:19

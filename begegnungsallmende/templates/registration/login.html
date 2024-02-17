@@ -1,0 +1,71 @@
+{% extends "no_menu_base.html" %}
+{% load i18n %}
+{% load juntagrico.config %}
+{% block allcontent %}
+    {% config "enable_registration" as enable_registration %}
+    <div class="offset-md-2 col-md-8">
+        {% if enable_registration %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>{% trans "Neu hier? " %}</h4>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class=" col-md-12">
+                    <a href="/my/signup" class="btn btn-success">
+                        {% trans "Registrieren und mitmachen!" %}
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <h4>{% trans "Bestehende Teilnehmende " %}</h4>
+            </div>
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label class="control-label col-md-3" for="username">
+                    {% trans "Email" %} {% config "demouser" %}
+                </label>
+                <div class="controls col-md-6">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="{% trans "Email-Adresse" %}"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-md-3"for="password">
+                    {% trans "Passwort" %} {% config "demopwd" %}
+                </label>
+                <div class="controls col-md-6">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="{% trans "Passwort" %}"/>
+                </div>
+            </div>
+            {% if form.errors %}
+                <div class="offset-md-3 col-md-6 alert alert-danger">
+                    {% for fekey, fevalue in form.errors.items %}
+                        {% for ferror in fevalue %}
+                            {{ ferror|safe }}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="form-group row">
+                <div class="offset-md-3 col-md-6">
+                    <button type="submit" class="btn btn-success">
+                        {% trans "Anmelden" %}
+                    </button>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-md-3 col-md-6">
+                    <a href="{% url 'password_reset' %}">
+                        {% trans "Neues Passwort anfordern" %}
+                    </a>
+                </div>
+            </div>
+            <input type="hidden" name="next" value="{{ next|escape }}"/>
+        </form>
+    </div>
+{% endblock %}
