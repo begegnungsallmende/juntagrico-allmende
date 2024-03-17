@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-17 17:36+0100\n"
+"POT-Creation-Date: 2024-03-17 15:41+0100\n"
 "PO-Revision-Date: 2020-11-03 11:42+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -152,40 +152,29 @@ msgid "Kommentar"
 msgstr ""
 
 #: begegnungsallmende/templates/home.html:9
+#| msgid ""
+#| "Du befindest dich auf der Koordinationsplattform der b-Allmend 2024. Ca. "
+#| "zwei Wochen vor dem Allmend-Wochende wirst du dich hier für "
+#| "Arbeitseinsätze und deine Teilnahme an Veranstaltungen eintragen können "
+#| "(\"Termine\"). Wir informieren dich per Mail, sobald die Termine "
+#| "aufgeschaltet sind."
 msgid ""
-"Du befindest dich auf der Koordinationsplattform der b-Allmend 2024. Ca. "
-"zwei Wochen vor dem Allmend-Wochende wirst du dich hier für Arbeitseinsätze "
-"und deine Teilnahme an Veranstaltungen eintragen können (\"Termine\"). Wir "
-"informieren dich per Mail, sobald die Termine aufgeschaltet sind."
+"Du befindest dich auf der Koordinationsplattform der b-Allmend 2024. Du "
+"kannst dich hier für Arbeitseinsätze und Fahrgemeinschaften eintragen "
+"(\"Termine\")."
 msgstr ""
-"Tu te trouves sur la plateforme de coordination de b-Allmend 2024. Environ "
-"deux semaines avant le week-end de l'Allmend, tu pourras t'y inscrire pour "
-"des travaux et ta participation à des événements (\"Termine\"). Nous "
-"t'informerons par e-mail dès que les dates seront mises en ligne. "
+"Tu te trouves sur la plateforme de coordination de b-Allmend 2024."
+"tu peux t'inscrire ici pour des travaux et le covoiturage (\"Termine\")"
 
-#: begegnungsallmende/templates/home.html:16
-msgid ""
-"Ausserdem kannst du deine Teilnahmetage ändern (unter \"Teilnahme\") sowie "
-"mit der Orga kommunizieren (\"Kontakt zur Orga\" und "
-"\"Tätigkeitsbereiche\"). Und schliesslich unter \"Personalien\" kannst du "
-"entscheiden, ob andere Allmend-Teilnehmende dich über diese Plattform "
-"kontaktieren dürfen."
-msgstr ""
-"En outre, tu peux modifier tes jours de participation (sous "
-"\"participation\") et communiquer avec l'orga (\"Kontakt zur Orga\" et "
-"\"Tätigkeitsbereiche\"). Enfin, sous \"Informations personnelles\", tu peux "
-"décider si d'autres participant:es à l'Allmend peuvent te contacter via "
-"cette plate-forme."
-
-#: begegnungsallmende/templates/home.html:25
+#: begegnungsallmende/templates/home.html:17
 msgid "Aktuelle Termine"
 msgstr ""
 
-#: begegnungsallmende/templates/home.html:35
+#: begegnungsallmende/templates/home.html:27
 msgid "Hier alle Termine anzeigen"
 msgstr ""
 
-#: begegnungsallmende/templates/home.html:42
+#: begegnungsallmende/templates/home.html:34
 msgid "Zu den Kalendern der einzelnen Tätigkeitsbereiche"
 msgstr ""
 
